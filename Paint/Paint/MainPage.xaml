@@ -9,9 +9,31 @@
 
     <StackLayout>
         <Grid>
-            <views:SKCanvasView PaintSurface="OnPainting" EnableTouchEvents="True" Touch="OnTouch" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <views:SKCanvasView x:Name="View" PaintSurface="OnPainting" EnableTouchEvents="True" Touch="OnTouch" Grid.Row="1"/>
+
+            <Button Clicked="OnChange" BackgroundColor="Blue" Grid.Row="1" Grid.Column="0"/>
+            <Button Clicked="OnChange" BackgroundColor="Yellow" Grid.Row="1" Grid.Column="1"/>
+            <Button Clicked="OnChange" BackgroundColor="Red" Grid.Row="1" Grid.Column="2"/>
+            <Button Clicked="OnChange" BackgroundColor="Green" Grid.Row="2" Grid.Column="0"/>
+            <Button Clicked="OnChange" BackgroundColor="Gray" Grid.Row="2" Grid.Column="1"/>
+            <Button Clicked="OnChange" BackgroundColor="Aqua" Grid.Row="2" Grid.Column="2"/>
+
+            <Button Text="Clear" Clicked="OnClear" Grid.Row="3"/>
+            <Button Text="Save" Clicked="OnSaving" Grid.Row="3"/>
         </Grid>
-        
     </StackLayout>
 
 </ContentPage>
