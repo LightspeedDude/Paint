@@ -40,7 +40,6 @@ namespace Paint
 
             SKPaint stroke = new SKPaint
             {
-
                 Color = but.ToSKColor(),
                 StrokeWidth = 2,
                 Style = SKPaintStyle.Stroke,
@@ -88,6 +87,20 @@ namespace Paint
         {
             var button = (Button)ob;
             but = button.BackgroundColor;
+
+            SKPaint stroke = new SKPaint
+            {
+                Color = but.ToSKColor(),
+                StrokeWidth = 2,
+                Style = SKPaintStyle.Stroke,
+                StrokeCap = SKStrokeCap.Round
+            };
+
+            foreach (var touchPath in paths)
+            {
+                canvas.DrawPath(touchPath, stroke);
+            }
+
         }
 
     }
