@@ -17,6 +17,9 @@ namespace Paint
         private List<SKPath> paths = new List<SKPath>();
         private Dictionary<long, SKPath> temporaryPaths = new Dictionary<long, SKPath>();
         private Color but;
+        private SKSurface surface;
+        private SKCanvas canvas;
+
         public MainPage()
         {
             InitializeComponent();
@@ -24,9 +27,9 @@ namespace Paint
 
         private void OnPainting(object sender, SKPaintSurfaceEventArgs e)
         {
-            SKSurface surface = e.Surface;
+            surface = e.Surface;
 
-            SKCanvas canvas = surface.Canvas;
+            canvas = surface.Canvas;
 
             canvas.Clear(SKColors.White);
 
@@ -76,16 +79,14 @@ namespace Paint
             ((SKCanvasView)sender).InvalidateSurface();
         }
 
-        void OnClear(object sender, SKPaintSurfaceEventArgs e)
+        void OnClear(object sender, EventArgs args)
         {
-            var surface = e.Surface;
-
-            var canvas = surface.Canvas;
+            canvas = surface.Canvas;
 
             canvas.Clear(SKColors.White);
         }
 
-        public void OnChange(Object ob, EventArgs ar)
+        void OnChange(Object ob, EventArgs ar)
         {
             var button = (Button)ob;
             but = button.BackgroundColor;

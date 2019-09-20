@@ -32,7 +32,7 @@
             <Button Clicked="OnChange" BackgroundColor="Aqua" Grid.Row="2" Grid.Column="2"/>
 
             <Button Text="Clear" Clicked="OnClear" Grid.Row="3"/>
-            <Button Text="Save" Clicked="OnSaving" Grid.Row="3"/>
+            <!--<Button Text="Save" Clicked="OnSaving" Grid.Row="3"/>-->
         </Grid>
     </StackLayout>
 
